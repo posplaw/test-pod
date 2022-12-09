@@ -1,0 +1,16 @@
+PODS:
+  - test-pod (1.0.0)
+
+DEPENDENCIES:
+  - test-pod (from `../test-pod.podspec`)
+
+EXTERNAL SOURCES:
+  test-pod:
+    :podspec: "../test-pod.podspec"
+
+SPEC CHECKSUMS:
+  test-pod: 88038ee7334d632b34619ba89f0c0464bc2ae027
+
+PODFILE CHECKSUM: fef4fb5b74a362ac3448208192c2448dda0f2492
+
+COCOAPODS: 1.11.3

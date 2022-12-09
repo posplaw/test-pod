@@ -1,0 +1,28 @@
+{
+  "name": "test-pod",
+  "version": "1.0.0",
+  "homepage": "https://triumpharcade.com",
+  "summary": "Summary",
+  "description": "Description",
+  "license": {
+    "type": "custom",
+    "text": "None"
+  },
+  "authors": {
+    "Alex Oakley": "alex@triumpharcade.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.6",
+  "source": {
+    "http": "https://storage.googleapis.com/triumph-prod.appspot.com/triumph-kit-releases/test-1.0.0.zip"
+  },
+  "requires_arc": true,
+  "vendored_frameworks": [
+    "test.xcframework",
+    "Passbase.xcframework",
+    "Microblink.xcframework"
+  ],
+  "swift_version": "5.6"
+}

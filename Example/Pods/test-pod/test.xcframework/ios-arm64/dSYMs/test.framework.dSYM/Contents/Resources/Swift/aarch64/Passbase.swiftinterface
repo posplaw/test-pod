@@ -1,0 +1,163 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name Passbase
+import AVFoundation
+import AVKit
+import Foundation
+import ImageIO
+import Microblink
+import MobileCoreServices
+@_exported import Passbase
+import PhotosUI
+import Swift
+import SwiftUI
+import UIKit
+import UniformTypeIdentifiers
+import Vision
+import _Concurrency
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PassbaseButton) @_Concurrency.MainActor(unsafe) public class PassbaseButton : UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc override dynamic public func awakeFromNib()
+  @objc deinit
+}
+extension UIKit.UIResponder {
+  @_Concurrency.MainActor(unsafe) public var parentViewController: UIKit.UIViewController? {
+    get
+  }
+}
+extension UIKit.UIDevice {
+  #warning("hardcoded")
+}
+public struct URLParameterEncoder : Passbase.ParameterEncoder {
+  public func encode(urlRequest: inout Foundation.URLRequest, with parameters: Passbase.Parameters) throws
+}
+public struct IsoCountryInfo {
+  public let name: Swift.String
+  public let numeric: Swift.String
+  public let alpha2: Swift.String
+  public let alpha3: Swift.String
+  public let calling: Swift.String
+  public let currency: Swift.String
+  public let continent: Swift.String
+  public var flag: Swift.String? {
+    get
+  }
+  public var fractionDigits: Swift.Int
+}
+@_hasMissingDesignatedInitializers public class IsoCountries {
+  public class func flag(countryCode: Swift.String) -> Swift.String?
+  public static let allCountries: [Passbase.IsoCountryInfo]
+  @objc deinit
+}
+public protocol ImageConfirmationViewDelegate : AnyObject {
+  func didClickRedoButton()
+  func didClickConfirmButton()
+}
+extension UIKit.UIColor {
+  convenience public init(_ hexString: Swift.String?)
+  convenience public init(hexString: Swift.String?, alpha: Swift.Float = 1.0)
+}
+extension UIKit.UIScreen {
+  @_Concurrency.MainActor(unsafe) public func setBrightness(to value: CoreGraphics.CGFloat, duration: Foundation.TimeInterval = 0.3, ticksPerSecond: Swift.Double = 120)
+}
+public typealias Parameters = [Swift.String : Any]
+public protocol ParameterEncoder {
+  func encode(urlRequest: inout Foundation.URLRequest, with parameters: Passbase.Parameters) throws
+}
+public enum ParameterEncoding {
+  case urlEncoding
+  case jsonEncoding
+  case urlAndJsonEncoding
+  public func encode(urlRequest: inout Foundation.URLRequest, bodyParameters: Passbase.Parameters?, urlParameters: Passbase.Parameters?) throws
+  public static func == (a: Passbase.ParameterEncoding, b: Passbase.ParameterEncoding) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum NetworkError : Swift.String, Swift.Error {
+  case parametersNil
+  case encodingFailed
+  case missingURL
+  case missingFile
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc public protocol NavigationBarViewDelegate {
+  @objc func didClickBackNavigationButton()
+  @objc optional func didClickCloseNavigationButton()
+}
+public typealias NetworkRouterCompletion = (_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: Swift.Error?) -> ()
+#warning("add protocol")
+public typealias HTTPHeaders = [Swift.String : Swift.String]
+public enum HTTPTask {
+  case request
+  case requestParameters(bodyParameters: Passbase.Parameters?, bodyEncoding: Passbase.ParameterEncoding, urlParameters: Passbase.Parameters?)
+  case requestParametersAndHeaders(bodyParameters: Passbase.Parameters?, bodyEncoding: Passbase.ParameterEncoding, urlParameters: Passbase.Parameters?, additionHeaders: Passbase.HTTPHeaders?)
+  case requestUploadData(additionHeaders: Passbase.HTTPHeaders?)
+  case uploadDataWithProgress(additionHeaders: Passbase.HTTPHeaders?)
+}
+#warning("add unit tests to make sure it does not break is BE changes pauload")
+@_hasMissingDesignatedInitializers public class IsoCountryCodes {
+  public class func find(key: Swift.String) -> Passbase.IsoCountryInfo?
+  public class func searchByName(_ name: Swift.String) -> Passbase.IsoCountryInfo?
+  public class func searchByNumeric(_ numeric: Swift.String) -> Passbase.IsoCountryInfo?
+  public class func searchByCurrency(_ currency: Swift.String) -> [Passbase.IsoCountryInfo]
+  public class func searchByCallingCode(_ calllingCode: Swift.String) -> [Passbase.IsoCountryInfo]
+  @objc deinit
+}
+@objc public protocol PassbaseDelegate {
+  @objc func onSubmitted()
+  @objc func onFinish()
+  @objc func onError()
+  @objc func onStart()
+}
+#warning("ORGANIZE: FileLoggerService vs DataDogService")
+@_inheritsConvenienceInitializers @objc public class PassbaseSDK : ObjectiveC.NSObject {
+  public static let version: Swift.String
+  @objc weak public static var delegate: Passbase.PassbaseDelegate?
+  @objc public static var prefillUserEmail: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public static var source: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc public static func initialize(publishableApiKey: Swift.String, customerPayload: Swift.String)
+  #warning("should be moved to service")
+  @objc public static func startVerification(from: UIKit.UIViewController) throws
+  @objc override dynamic public init()
+  @objc deinit
+}
+#warning("add protocol")
+public struct JSONParameterEncoder : Passbase.ParameterEncoder {
+  public func encode(urlRequest: inout Foundation.URLRequest, with parameters: Passbase.Parameters) throws
+}
+public enum HTTPMethod : Swift.String {
+  case get
+  case post
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension Swift.Array where Element : Swift.Hashable {
+  public func set() -> Swift.Set<Swift.Array<Element>.Element>
+  public func isSubset(of array: Swift.Array<Element>) -> Swift.Bool
+  public func isSuperset(of array: Swift.Array<Element>) -> Swift.Bool
+  public func commonElements(between array: Swift.Array<Element>) -> Swift.Array<Element>
+  public func hasCommonElements(with array: Swift.Array<Element>) -> Swift.Bool
+}
+extension Passbase.ParameterEncoding : Swift.Equatable {}
+extension Passbase.ParameterEncoding : Swift.Hashable {}
+extension Passbase.NetworkError : Swift.Equatable {}
+extension Passbase.NetworkError : Swift.Hashable {}
+extension Passbase.NetworkError : Swift.RawRepresentable {}
+extension Passbase.HTTPMethod : Swift.Equatable {}
+extension Passbase.HTTPMethod : Swift.Hashable {}
+extension Passbase.HTTPMethod : Swift.RawRepresentable {}
